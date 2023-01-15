@@ -1,0 +1,13 @@
+{
+  "name": "badge",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/node": "^2.8.11"
+  },
+  "devDependencies": {
+    "@koishijs/registry": "^4.4.3",
+    "vercel": "^28.12.4"
+  }
+}
