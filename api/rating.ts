@@ -13,9 +13,10 @@ export default async function handler(
   const registry: Scanner = await fetch(REGISTRY).then(res => res.json())
   const object = registry.objects.find(p => p.package.name === path)
   const rating = encodeURIComponent(object
-    ? star(Math.round(object.score.final * 5))
+    ? star(Math.min(Math.max((object.score.final - 0.25) * 10, 0), 5))
     : 'package not found')
-  const url = `https://img.shields.io/badge/rating-${rating}-green?` + new URLSearchParams({
+  const color = object.insecure ? 'red' : object.manifest.preview ? 'yellow' : 'green'
+  const url = `https://img.shields.io/badge/rating-${rating}-${color}?` + new URLSearchParams({
     style: 'flat-square',
     ...query,
   })
@@ -26,7 +27,7 @@ export default async function handler(
 function star(count: number) {
   let stars = ''
   for (let i = 0; i < 5; i++) {
-    stars += i < count ? '★' : '☆'
+    stars += i + 0.5 < count ? '★' : '☆'
   }
   return stars
 }
