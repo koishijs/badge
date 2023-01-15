@@ -1,7 +1,7 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
-import Scanner from '@koishijs/registry'
+import { MarketResult } from '@koishijs/registry'
 
-const REGISTRY = 'https://raw.githubusercontent.com/koishijs/registry/dist/index.json'
+const endpoint = 'https://raw.githubusercontent.com/koishijs/registry/dist/market.json'
 
 export default async function handler(
   request: VercelRequest,
@@ -10,8 +10,8 @@ export default async function handler(
   const { path } = request.query
   const query = mapAttrs(request.query, (key, value) =>
     Array.isArray(value) ? value[0]: value)
-  const registry: Scanner = await fetch(REGISTRY).then(res => res.json())
-  const object = registry.objects.find(p => p.package.name === path)
+  const market: MarketResult = await fetch(endpoint).then(res => res.json())
+  const object = market.objects.find(p => p.name === path)
   const rating = encodeURIComponent(object
     ? star(Math.min(Math.max((object.score.final - 0.25) * 10, 0), 5))
     : 'package not found')

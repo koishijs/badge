@@ -1,4 +1,7 @@
 {
+  "github": {
+    "silent": true
+  },
   "functions": {
     "api/*.ts": {
       "memory": 1024,
