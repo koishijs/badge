@@ -20,9 +20,7 @@ export default async function handler(
     Array.isArray(value) ? value[0]: value)
   const market: MarketResult = await fetch(endpoint).then(res => res.json())
   const object = market.objects.find(p => p.name === path)
-  const rating = encodeURIComponent(object
-    ? star(Math.min(Math.max((object.score.final - 0.25) * 10, 0), 5))
-    : 'package not found')
+  const rating = encodeURIComponent(object ? star(object.rating) : 'package not found')
   const color = getColor(object)
   const url = `https://img.shields.io/badge/rating-${rating}-${color}?` + new URLSearchParams({
     style: 'flat-square',

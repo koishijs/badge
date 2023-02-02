@@ -44,10 +44,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@koishijs/registry@^4.4.3":
-  version "4.4.3"
-  resolved "https://registry.yarnpkg.com/@koishijs/registry/-/registry-4.4.3.tgz#d9c3d15ad9a41a104b21bc81b2e079eb361d6055"
-  integrity sha512-NWnp58sCXtU0Y3EJJcpM2gKghAj2MwLjtPyEQFa2KZMgKwQnZp7fNYMVPLbXuhkEVkXLI7dbV2Hv/r7eWmIRkA==
+"@koishijs/registry@^4.4.7":
+  version "4.4.7"
+  resolved "https://registry.npmmirror.com/@koishijs/registry/-/registry-4.4.7.tgz#2b9126b19c2e40ee856ad910b0a1d4400e0b6310"
+  integrity sha512-AxErAdbvZ8xdThRM40m9AQzj7EzzP7ZDDBqaPmYisraOJNg2KRVnE57XpsgKoLmFB3kIsyCoNp+AIR122l7WbA==
   dependencies:
     cosmokit "^1.4.0"
     p-map "^4.0.0"

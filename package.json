@@ -7,7 +7,7 @@
     "@vercel/node": "^2.8.11"
   },
   "devDependencies": {
-    "@koishijs/registry": "^4.4.3",
+    "@koishijs/registry": "^4.4.7",
     "vercel": "^28.12.4"
   }
 }
