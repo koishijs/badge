@@ -1,7 +1,7 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
 import { AnalyzedPackage, MarketResult } from '@koishijs/registry'
 
-const endpoint = 'https://raw.githubusercontent.com/koishijs/registry-deploy/dist/market.json'
+const endpoint = 'https://raw.githubusercontent.com/koishijs/registry-deploy/dist/index.json'
 
 function getColor(object: AnalyzedPackage) {
   if (!object) return 'grey'
@@ -19,7 +19,7 @@ export default async function handler(
   const query = mapAttrs(request.query, (key, value) =>
     Array.isArray(value) ? value[0]: value)
   const market: MarketResult = await fetch(endpoint).then(res => res.json())
-  const object = market.objects.find(p => p.name === path)
+  const object = market.objects.find(p => p.package.name === path)
   const rating = encodeURIComponent(object ? star(object.rating) : 'package not found')
   const color = getColor(object)
   const url = `https://img.shields.io/badge/rating-${rating}-${color}?` + new URLSearchParams({
