@@ -1,7 +1,7 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
 import { AnalyzedPackage, MarketResult } from '@koishijs/registry'
 
-const endpoint = 'https://raw.githubusercontent.com/koishijs/registry-deploy/dist/market.json'
+const endpoint = 'https://raw.githubusercontent.com/koishijs/registry-deploy/dist/index.json'
 
 function getColor(object: AnalyzedPackage) {
   if (!object) return 'grey'
